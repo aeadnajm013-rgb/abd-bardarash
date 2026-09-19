@@ -113,53 +113,64 @@
             margin-bottom: 20px;
         }
 
+        /* HD Animated Animated Logo Box */
         .db-logo {
-            width: 160px;
-            height: 150px;
+            width: 220px;
+            height: 210px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
-            animation: ledPulse 2s infinite alternate;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #030712;
+            background: #020617;
             padding: 10px;
-            border-radius: 20px;
+            border-radius: 24px;
+            animation: logoFloat 3s ease-in-out infinite alternate, ledGlow 2.5s infinite alternate;
         }
 
         .db-logo svg {
             width: 100%;
             height: 100%;
+            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
         }
 
-        @keyframes ledPulse {
+        /* Floating & Glowing Animations */
+        @keyframes logoFloat {
             0% {
-                box-shadow: 0 0 12px #ca8a04, inset 0 0 8px #ca8a04;
+                transform: translateY(0px) scale(1);
+            }
+            100% {
+                transform: translateY(-8px) scale(1.02);
+            }
+        }
+
+        @keyframes ledGlow {
+            0% {
+                box-shadow: 0 0 15px #ca8a04, inset 0 0 10px #ca8a04;
                 border: 2px solid #ca8a04;
             }
             50% {
-                box-shadow: 0 0 25px #eab308, inset 0 0 15px #eab308;
+                box-shadow: 0 0 30px #eab308, inset 0 0 20px #eab308;
                 border: 2px solid #fde047;
-                transform: scale(1.03);
             }
             100% {
-                box-shadow: 0 0 35px #ffffff, inset 0 0 20px #ffffff;
+                box-shadow: 0 0 45px #ffffff, inset 0 0 25px #ffffff;
                 border: 2px solid #ffffff;
             }
         }
 
         .company-title {
-            font-size: 24px;
+            font-size: 26px;
             color: #f8fafc;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
             margin-bottom: 10px;
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .company-title span {
             color: #eab308;
-            text-shadow: 0 0 12px rgba(234, 179, 8, 0.8);
+            text-shadow: 0 0 15px rgba(234, 179, 8, 0.9);
         }
 
         .account-badge {
@@ -497,36 +508,47 @@
             </svg>
         </a>
 
-        <!-- AS iD Gold & White Logo -->
+        <!-- AS iD Glowing Animated Logo -->
         <div class="logo-container">
             <div class="db-logo">
-                <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg">
                     <defs>
+                        <!-- Gold Gradient -->
                         <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#fde047"/>
-                            <stop offset="50%" stop-color="#eab308"/>
+                            <stop offset="0%" stop-color="#fff176"/>
+                            <stop offset="35%" stop-color="#fde047"/>
+                            <stop offset="70%" stop-color="#eab308"/>
                             <stop offset="100%" stop-color="#ca8a04"/>
                         </linearGradient>
+                        <!-- White Silver Gradient -->
                         <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="60%" stop-color="#f1f5f9"/>
                             <stop offset="100%" stop-color="#cbd5e1"/>
                         </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="4" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
                     </defs>
-                    <!-- Apple Logo Icon (Gold) -->
-                    <path d="M 150 22 C 158 12 169 7 178 5 C 180 15 174 25 166 31 C 158 37 148 35 150 22 Z M 168 33 C 156 33 147 40 141 40 C 134 40 126 33 116 33 C 102 33 90 42 83 55 C 69 80 79 117 93 137 C 100 147 108 158 119 158 C 129 157 133 151 145 151 C 157 151 161 158 172 158 C 183 158 190 148 197 137 C 205 125 208 114 209 113 C 208 112 189 105 189 83 C 189 65 203 56 204 55 C 194 40 178 34 168 33 Z" fill="url(#goldGrad)"/>
+
+                    <!-- Top Glowing Apple Icon -->
+                    <path d="M 160 18 C 168 8 180 3 190 1 C 192 12 185 23 176 29 C 167 35 157 33 160 18 Z M 180 30 C 166 30 156 38 149 38 C 141 38 132 30 120 30 C 104 30 90 40 82 55 C 66 83 78 125 94 147 C 102 158 111 170 123 170 C 134 169 139 162 152 162 C 165 162 170 170 182 170 C 194 170 202 158 210 147 C 219 133 222 122 223 120 C 222 119 201 111 201 87 C 201 67 217 57 218 56 C 207 39 190 32 180 30 Z" fill="url(#goldGrad)" filter="url(#glow)"/>
                     
-                    <!-- Letter A (White with Gold outline) -->
-                    <path d="M 50 180 L 120 50 L 175 150 L 140 150 L 120 110 L 80 110 L 60 150 Z M 90 90 L 110 90 L 100 70 Z" fill="url(#whiteGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <!-- Letter A (Bold White with Gold Glow) -->
+                    <path d="M 35 185 L 115 40 L 175 185 L 138 185 L 120 140 L 75 140 L 58 185 Z M 87 110 L 108 110 L 98 80 Z" fill="url(#whiteGrad)" stroke="url(#goldGrad)" stroke-width="2.5" filter="url(#glow)"/>
                     
-                    <!-- Letter S (Gold) -->
-                    <path d="M 160 85 C 160 60 230 50 230 85 C 230 115 150 115 150 150 C 150 185 240 180 240 145 L 205 145 C 205 160 180 162 180 148 C 180 130 260 130 260 85 C 260 40 160 40 160 85 Z" fill="url(#goldGrad)"/>
+                    <!-- Letter S (Dynamic Gold 3D style) -->
+                    <path d="M 165 90 C 165 60 245 48 245 90 C 245 125 155 125 155 162 C 155 200 255 195 255 155 L 215 155 C 215 172 188 174 188 158 C 188 138 278 138 278 90 C 278 40 165 40 165 90 Z" fill="url(#goldGrad)" filter="url(#glow)"/>
                     
-                    <!-- iD Text Below -->
-                    <text x="150" y="225" font-family="'Poppins', sans-serif" font-weight="900" font-size="46" fill="url(#whiteGrad)" stroke="url(#goldGrad)" stroke-width="2" text-anchor="middle">iD</text>
-                    <line x1="60" y1="205" x2="110" y2="205" stroke="url(#goldGrad)" stroke-width="3"/>
-                    <line x1="190" y1="205" x2="240" y2="205" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <!-- iD Big Bold Emblem -->
+                    <text x="160" y="240" font-family="'Poppins', sans-serif" font-weight="900" font-size="52" fill="url(#whiteGrad)" stroke="url(#goldGrad)" stroke-width="2" text-anchor="middle" letter-spacing="2">iD</text>
+
+                    <!-- Decorative Lines -->
+                    <line x1="45" y1="225" x2="105" y2="225" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+                    <line x1="215" y1="225" x2="275" y2="225" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
                     
-                    <text x="150" y="255" font-family="'Poppins', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="4">APPLE ID STORE</text>
+                    <text x="160" y="272" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="5">APPLE ID STORE</text>
                 </svg>
             </div>
             <div class="company-title">AS <span>iD</span></div>
