@@ -113,10 +113,10 @@
             margin-bottom: 20px;
         }
 
-        /* HD Animated Logo Box */
+        /* Animated Logo Box */
         .db-logo {
-            width: 220px;
-            height: 210px;
+            width: 230px;
+            height: 215px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
@@ -132,7 +132,6 @@
         .db-logo svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
         }
 
         /* Floating & Glowing Animations */
@@ -161,7 +160,7 @@
         }
 
         .company-title {
-            font-size: 26px;
+            font-size: 28px;
             color: #f8fafc;
             font-weight: 900;
             letter-spacing: 1.5px;
@@ -513,41 +512,57 @@
             <div class="db-logo">
                 <svg viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <!-- Blue Neon Gradient for Apple Logo -->
+                        <!-- Blue Neon Gradient -->
                         <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#7dd3fc"/>
                             <stop offset="50%" stop-color="#38bdf8"/>
                             <stop offset="100%" stop-color="#0284c7"/>
                         </linearGradient>
-                        <!-- White Silver Gradient -->
+                        
+                        <!-- Pure Bright White/Silver Gradient -->
                         <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="60%" stop-color="#f1f5f9"/>
-                            <stop offset="100%" stop-color="#cbd5e1"/>
+                            <stop offset="70%" stop-color="#f8fafc"/>
+                            <stop offset="100%" stop-color="#e2e8f0"/>
                         </linearGradient>
-                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="4" result="blur" />
+
+                        <!-- High Intensity Glow Filters -->
+                        <filter id="glowApple" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
                             <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        
+                        <filter id="glowAS" x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur stdDeviation="6" result="blur1"/>
+                            <feGaussianBlur stdDeviation="2" result="blur2"/>
+                            <feMerge>
+                                <feMergeNode in="blur1"/>
+                                <feMergeNode in="blur2"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
                         </filter>
                     </defs>
 
                     <!-- Top Blue Glowing Apple Icon -->
-                    <path d="M 160 18 C 168 8 180 3 190 1 C 192 12 185 23 176 29 C 167 35 157 33 160 18 Z M 180 30 C 166 30 156 38 149 38 C 141 38 132 30 120 30 C 104 30 90 40 82 55 C 66 83 78 125 94 147 C 102 158 111 170 123 170 C 134 169 139 162 152 162 C 165 162 170 170 182 170 C 194 170 202 158 210 147 C 219 133 222 122 223 120 C 222 119 201 111 201 87 C 201 67 217 57 218 56 C 207 39 190 32 180 30 Z" fill="url(#blueGrad)" filter="url(#glow)"/>
+                    <path d="M 160 16 C 168 6 180 1 190 -1 C 192 10 185 21 176 27 C 167 33 157 31 160 16 Z M 180 28 C 166 28 156 36 149 36 C 141 36 132 28 120 28 C 104 28 90 38 82 53 C 66 81 78 123 94 145 C 102 156 111 168 123 168 C 134 167 139 160 152 160 C 165 160 170 168 182 168 C 194 168 202 156 210 145 C 219 131 222 120 223 118 C 222 117 201 109 201 85 C 201 65 217 55 218 54 C 207 37 190 30 180 28 Z" fill="url(#blueGrad)" filter="url(#glowApple)"/>
                     
-                    <!-- Letter A (Bold White with Blue Glow Border) -->
-                    <path d="M 35 185 L 115 40 L 175 185 L 138 185 L 120 140 L 75 140 L 58 185 Z M 87 110 L 108 110 L 98 80 Z" fill="url(#whiteGrad)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)"/>
-                    
-                    <!-- Letter S (Dynamic White/Blue style) -->
-                    <path d="M 165 90 C 165 60 245 48 245 90 C 245 125 155 125 155 162 C 155 200 255 195 255 155 L 215 155 C 215 172 188 174 188 158 C 188 138 278 138 278 90 C 278 40 165 40 165 90 Z" fill="url(#whiteGrad)" stroke="url(#blueGrad)" stroke-width="1.5" filter="url(#glow)"/>
-                    
+                    <!-- HIGH VISIBILITY "AS" LETTERS -->
+                    <g filter="url(#glowAS)">
+                        <!-- Letter A (Extra Bold White with Strong Blue Outline) -->
+                        <path d="M 28 195 L 112 30 L 175 195 L 132 195 L 115 145 L 68 145 L 51 195 Z M 80 110 L 103 110 L 91 72 Z" fill="url(#whiteGrad)" stroke="#38bdf8" stroke-width="3.5" stroke-linejoin="round"/>
+                        
+                        <!-- Letter S (Extra Bold White with Strong Blue Outline) -->
+                        <path d="M 168 85 C 168 50 258 38 258 85 C 258 126 158 122 158 168 C 158 212 268 206 268 158 L 222 158 C 222 178 192 180 192 163 C 192 138 292 138 292 85 C 292 32 168 32 168 85 Z" fill="url(#whiteGrad)" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round"/>
+                    </g>
+
                     <!-- iD Big Bold Emblem -->
-                    <text x="160" y="240" font-family="'Poppins', sans-serif" font-weight="900" font-size="52" fill="url(#whiteGrad)" stroke="url(#blueGrad)" stroke-width="2" text-anchor="middle" letter-spacing="2">iD</text>
+                    <text x="160" y="242" font-family="'Poppins', sans-serif" font-weight="900" font-size="52" fill="url(#whiteGrad)" stroke="url(#blueGrad)" stroke-width="2" text-anchor="middle" letter-spacing="2" filter="url(#glowApple)">iD</text>
 
                     <!-- Decorative Lines -->
-                    <line x1="45" y1="225" x2="105" y2="225" stroke="url(#blueGrad)" stroke-width="3.5" stroke-linecap="round"/>
-                    <line x1="215" y1="225" x2="275" y2="225" stroke="url(#blueGrad)" stroke-width="3.5" stroke-linecap="round"/>
+                    <line x1="45" y1="228" x2="105" y2="228" stroke="url(#blueGrad)" stroke-width="3.5" stroke-linecap="round"/>
+                    <line x1="215" y1="228" x2="275" y2="228" stroke="url(#blueGrad)" stroke-width="3.5" stroke-linecap="round"/>
                     
-                    <text x="160" y="272" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="5">APPLE ID STORE</text>
+                    <text x="160" y="274" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="5">APPLE ID STORE</text>
                 </svg>
             </div>
             <div class="company-title">AS <span>iD</span></div>
